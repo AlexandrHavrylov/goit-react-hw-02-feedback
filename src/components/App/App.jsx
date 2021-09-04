@@ -4,6 +4,7 @@ import { FeedbackOptions } from "components/Feedback/FeedbackOptions ";
 import { Section } from "components/Feedback/Section";
 import { Notification } from "components/Feedback/Notification";
 import { Container } from "./App.styled";
+
 export class App extends Component {
   state = {
     good: 0,
@@ -37,7 +38,10 @@ export class App extends Component {
     return (
       <Container>
         <Section title="Please leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.statCounter} />
+          <FeedbackOptions
+            options={["good", "neutral", "bad"]}
+            onLeaveFeedback={this.statCounter}
+          />
         </Section>
         <Section title="Statistics">
           {total > 0 ? (
